@@ -1,0 +1,7 @@
+a.article{
+    transition: transform 0.5s ease;
+}
+
+a.article:hover{
+    transform: scale(1.05);
+}
