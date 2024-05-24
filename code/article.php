@@ -4,15 +4,25 @@ $page_active = "index";
 
 require_once('./ressources/includes/connexion-bdd.php');
 
-// Code à améliorer
+/*SELECT article.id, article.titre, article.chapo, article.contenu, article.image, article.date_creation, article.lien_yt, auteur.nom, auteur.prenom FROM `article` JOIN auteur ON article.id = auteur.id WHERE article.id = 7;*/
+
 $id = $_GET['id'];
 $requete_brute = "
-    SELECT * FROM article 
-    WHERE article.id = $id
+    SELECT article.id, article.titre, article.chapo, article.contenu, article.image, article.date_creation, article.lien_yt, article.auteur_id auteur.nom, auteur.prenom
+    FROM `article` 
+    JOIN auteur ON article.id = auteur.id
+    WHERE article.id = $id;
 ";
 $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
 $entite = mysqli_fetch_array($resultat_brut);
 $date = date("d/m/Y", strtotime($entite['date_creation']));
+
+if ($entite["auteur_id"]=NULL){
+    $auteur = "Anonyme";
+} else {
+    $auteur = $entite["nom"]." ".$entite["prenom"];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -46,12 +56,11 @@ $date = date("d/m/Y", strtotime($entite['date_creation']));
     <main class="conteneur-principal conteneur-1280">
         <h1 class="titre"><?php echo $entite["titre"]; ?></h1>
         <h2 class="chapo"><?php echo $entite["chapo"];?></h2>
-        <p class="contenu"><?php echo $entite["contenu"];?></p>
+        <p class="auteur-date">Rédigé par <?php echo $auteur;?> le <?php echo $entite["date_creation"];?></p>
         <figure>
             <img src="<?php echo $entite["image"];?>" alt="image de l'article">
         </figure>
-        <p class="date">Dernière mise à jour le <?php echo $date;?></p>
-        <h2 class="titre">Tu lis l'article n°<?php echo $id?></h2>
+        <p class="contenur"><?php echo $entite["contenu"]; ?></p>
     </main>
     <?php require_once('./ressources/includes/footer.php'); ?>
 </body>
