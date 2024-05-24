@@ -3,9 +3,13 @@ require_once "../../ressources/includes/connexion-bdd.php";
 
 $page_courante = "auteurs";
 
+$formulaire_a_erreurs = false;
 $formulaire_soumis = !empty($_POST);
 
 if ($formulaire_soumis) {
+    if (empty($_POST['prenom']) && empty($_POST['nom'])) {
+        $formulaire_a_erreurs = true;
+    }
     if (
         isset(
             $_POST["prenom"],
@@ -13,6 +17,7 @@ if ($formulaire_soumis) {
             $_POST["lien_avatar"],
             $_POST["lien_twitter"]
         )
+        
     ) {
         $nom = htmlentities($_POST["nom"]);
         $prenom = htmlentities($_POST["prenom"]);
@@ -27,10 +32,13 @@ if ($formulaire_soumis) {
 
         if ($resultat_brut === true) {
             // Tout s'est bien passé
+            $formulaire_a_erreurs = false;
         } else {
             // Il y a eu un problème
+            $formulaire_a_erreurs = true;
         }
     }
+    header("Location:./");
 }
 ?>
 
@@ -44,7 +52,21 @@ if ($formulaire_soumis) {
 </head>
 
 <body>
-    <?php require_once('../ressources/includes/menu-principal.php'); ?>
+    <?php require_once('../ressources/includes/menu-principal.php');
+    if ($formulaire_soumis && !$formulaire_a_erreurs) {
+        echo "
+                <section class='banniere-alerte succes' role='alert' aria-live='polite'>
+                    <p>Message envoyé !</p>
+                </section>
+            ";
+    }
+    if ($formulaire_soumis && $formulaire_a_erreurs) {
+        echo "
+                <section class='banniere-alerte erreur' role='alert' aria-live='polite'>
+                    <p>Votre message possède une erreur !</p>
+                </section>
+            ";
+    } ?>
     <header class="bg-white shadow">
         <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
         <h1 class="text-3xl font-bold text-gray-900">Créer</h1>

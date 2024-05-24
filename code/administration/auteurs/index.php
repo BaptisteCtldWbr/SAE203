@@ -47,9 +47,7 @@ $URL_creation = "{$racine_URL}/creation.php";
                         <?php while ($element = mysqli_fetch_array($resultat_brut, MYSQLI_ASSOC)) {
                             $lien_edition = "{$racine_URL}/edition.php?id={$element['id']}"; ?>
                             <tr class="odd:bg-neutral-50 border-b-2 border-b-gray-100 last:border-b-0 first:border-t-2 first:border-t-gray-200">
-                                <td class="pl-8 p-4 font-bold"><?php echo $element[
-                                    'id'
-                                ]; ?></td>
+                                <td class="pl-8 p-4 font-bold"><?php echo $element['id']; ?></td>
                                 <td class="pl-8 p-4">
                                     <div class="w-16 h-16">
                                         <img 
@@ -64,7 +62,7 @@ $URL_creation = "{$racine_URL}/creation.php";
                                 </td>
                                 <td class="pl-8 p-4"><?php echo $element['prenom']; ?></td>
                                 <td class="pl-8 p-4"><?php echo $element['nom']; ?></td>
-                                <td class="pl-8 p-4"><?php echo $element['lien_twitter']; ?></td>
+                                <td class="pl-8 p-4"><a href="<?php echo $element['lien_twitter']; ?>" target="_blank"><?php echo $element['lien_twitter']; ?></</a></td>
                                 <td class="pl-8 p-4">
                                     <a href="<?php echo $lien_edition; ?>" class='font-bold text-blue-600'>Éditer</a>
                                 </td>

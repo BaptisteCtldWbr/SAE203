@@ -3,19 +3,22 @@ require_once('../../ressources/includes/connexion-bdd.php');
 
 $page_courante = "articles";
 
+$formulaire_a_erreurs = false;
 $formulaire_soumis = !empty($_POST);
 
 if ($formulaire_soumis) {
     // On prépare notre requête pour créer une nouvelle entité
-    $requete_brute = 'INSERT INTO A-REMPLACER(...) VALUES (...)';
+    $requete_brute = 'INSERT INTO auteur VALUES (...)';
     
     // On crée une nouvelle entrée
     $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
 
-    if ($resultat_brut) {
+    if ($resultat_brut === true) {
         // Tout s'est bien passé
+        $formulaire_a_erreurs = false;
     } else {
         // Il y a eu un problème
+        $formulaire_a_erreurs = true;
     }
 }
 ?>
@@ -26,11 +29,25 @@ if ($formulaire_soumis) {
 <head>
     <?php include_once("../ressources/includes/head.php"); ?>
 
-    <title>Creation A-REMPLACER - Administration</title>
+    <title>Creation d'Article - Administration</title>
 </head>
 
 <body>
-    <?php include_once '../ressources/includes/menu-principal.php'; ?>
+    <?php include_once '../ressources/includes/menu-principal.php'; 
+        if ($formulaire_soumis && !$formulaire_a_erreurs) {
+            echo "
+                    <section class='banniere-alerte succes' role='alert' aria-live='polite'>
+                        <p>Message envoyé !</p>
+                    </section>
+                ";
+        }
+        if ($formulaire_soumis && $formulaire_a_erreurs) {
+            echo "
+                    <section class='banniere-alerte erreur' role='alert' aria-live='polite'>
+                        <p>Votre message possède une erreur !</p>
+                    </section>
+                ";
+        }?>
     <header class="bg-white shadow">
         <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
         <h1 class="text-3xl font-bold text-gray-900">Créer</h1>

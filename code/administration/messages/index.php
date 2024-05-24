@@ -12,7 +12,7 @@ $page_courante = "messages";
 
 <head>
     <?php include_once("../ressources/includes/head.php"); ?>
-    <title>Liste des messages - Administration</title>
+    <title>Liste messages - Administration</title>
 </head>
 
 <body>
@@ -29,13 +29,13 @@ $page_courante = "messages";
                 <table class="w-full bg-white rounded-lg overflow-hidden border-collapse shadow">
                     <thead class="bg-gray-100">
                         <tr>
-                            <th class="font-bold pl-8 py-5 text-left">Id</th>
+                            <th class="font-bold pl-8 py-5 text-left">I.D</th>
                             <th class="font-bold pl-8 py-5 text-left">Nom</th>
-                            <th class="font-bold pl-8 py-5 text-left">A CHANGER</th>
-                            <th class="font-bold pl-8 py-5 text-left">A CHANGER</th>
-                            <th class="font-bold pl-8 py-5 text-left">A CHANGER</th>
-                            <th class="font-bold pl-8 py-5 text-left">A CHANGER</th>
-                            <th class="font-bold pl-8 py-5 text-left">A CHANGER</th>
+                            <th class="font-bold pl-8 py-5 text-left">Prénom</th>
+                            <th class="font-bold pl-8 py-5 text-left">Email</th>
+                            <th class="font-bold pl-8 py-5 text-left">Contenu</th>
+                            <th class="font-bold pl-8 py-5 text-left">Type</th>
+                            <th class="font-bold pl-8 py-5 text-left">Date de de creation</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,10 +44,10 @@ $page_courante = "messages";
                                 <td class="pl-8 p-4 font-bold"><?php echo $element["id"]; ?></td>
                                 <td class="pl-8 p-4"><?php echo $element["nom"]; ?></td>
                                 <td class="pl-8 p-4"><?php echo $element["prenom"]; ?></td>
-                                <td class="pl-8 p-4"></td>
-                                <td class="pl-8 p-4"></td>
-                                <td class="pl-8 p-4"></td>
-                                <td class="pl-8 p-4"></td>
+                                <td class="pl-8 p-4"><?php echo $element["email"]; ?></td>
+                                <td class="pl-8 p-4"><?php echo $element["contenu"]; ?></td>
+                                <td class="pl-8 p-4"><?php echo $element["type"]; ?></td>
+                                <td class="pl-8 p-4"><?php echo $element["date_creation"]; ?></td>
                             </tr>
                         <?php } ?>
                     </tbody>

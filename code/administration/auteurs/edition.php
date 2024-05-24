@@ -18,13 +18,16 @@ if ($formulaire_soumis) {
     $id = $_POST["id"];
     $nom = htmlentities($_POST["nom"]);
     $prenom = htmlentities($_POST["prenom"]);
+    $twitter = htmlentities($_POST["lien_twitter"]);
+    $avatar = htmlentities($_POST["lien_avatar"]);
 
     $requete_brute = "
-        UPDATE A-REMPLACER 
+        UPDATE auteur 
         SET 
             nom = '$nom',
             prenom = '$prenom',
-            A-COMPLETER
+            lien_avatar = '$avatar',
+            lien_twitter ='$twitter'
         WHERE id = '$id'
     ";
 
@@ -34,6 +37,9 @@ if ($formulaire_soumis) {
         // Tout s'est bien passé
     } else {
         // Il y a eu un problème
+    }
+    if($formulaire_soumis) {
+        header("Location:./");
     }
 }
 ?>
