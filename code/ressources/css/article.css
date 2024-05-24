@@ -1,0 +1,17 @@
+#hautarticle{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: nowrap;
+    margin-bottom: 20px;
+}
+
+.chapo{
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+#hautarticle img{
+    max-width: 400px;
+    max-height: 200px;
+}

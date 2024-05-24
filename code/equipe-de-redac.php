@@ -1,6 +1,6 @@
 <?php
 $couleur_bulle_classe = "rose";
-$page_active = "";
+$page_active = "equipe-de-redac";
 
 require_once('./ressources/includes/connexion-bdd.php');
 
@@ -29,7 +29,7 @@ require_once('./ressources/includes/connexion-bdd.php');
 <body>
 <section class="conteneur-1280">
         <main class="conteneur-principal">
-        <?php require_once('./ressources/includes/header.php');?>
+        <?php require_once('./ressources/includes/top-navigation.php');?>
             <h2 class="titre-page">Les activités sportives à CY</h2>
             <p>De nombreuses activités sont proposées par les services de l'université de Cergy Pontoise, en voilà un échantillon :</p>
             <div class="activites-conteneur">
