@@ -12,7 +12,7 @@ $page_courante = "messages";
 
 <head>
     <?php include_once("../ressources/includes/head.php"); ?>
-    <title>Liste messages - Administration</title>
+    <title>Liste des messages - Administration</title>
 </head>
 
 <body>
