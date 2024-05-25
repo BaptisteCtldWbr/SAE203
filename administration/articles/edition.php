@@ -28,6 +28,7 @@ if ($formulaire_soumis) {
     $contenu = htmlentities($_POST["contenu"]);
     $image = htmlentities($_POST["image"]);
     $lien_yt = htmlentities($_POST["lien_yt"]);
+    $date = date("Y-m-d H:i:s");
     $auteur_id = $_POST["auteur_id"];
 
     // Vérification de la validité de l'auteur_id
@@ -58,7 +59,8 @@ if ($formulaire_soumis) {
             header("Location:./");
         } else {
             // Affichage d'un message d'erreur en cas d'échec de la requête SQL
-            $formulaire_a_erreurs = true
+            echo "Le formulaire comporte une erreur";
+            $formulaire_a_erreurs = true;
         }
     }
 }
@@ -110,7 +112,7 @@ if ($formulaire_soumis) {
                             <div class="col-span-12">
                             <label for="auteur_id" class="block text-lg font-medium text-gray-700">Auteur</label>
                                 <select name="auteur_id" id="auteur_id" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-                                    <option value="">NULL</option>
+                                    <option value="">Aucun auteur</option>
                                     <?php foreach ($auteurs as $auteur) { ?>
                                         <option value="<?php echo $auteur['id']; ?>" <?php echo ($entite['auteur_id'] == $auteur['id']) ? 'selected' : ''; ?>>
                                             <?php echo $auteur['prenom'] . ' ' . $auteur['nom']; ?>

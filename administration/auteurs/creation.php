@@ -5,12 +5,12 @@ $page_courante = "auteurs";
 
 $formulaire_a_erreurs = false;
 $formulaire_soumis = !empty($_POST);
-
+$message_erreur = "";
 if ($formulaire_soumis) {
-    if (empty($_POST['prenom']) && empty($_POST['nom'])) {
+    if (empty($_POST["nom"]) || empty($_POST["prenom"])) {
         $formulaire_a_erreurs = true;
-    }
-    if (
+        $message_erreur = "Le nom et le prénom sont requis.";
+    } elseif (
         isset(
             $_POST["prenom"],
             $_POST["nom"],
@@ -18,7 +18,7 @@ if ($formulaire_soumis) {
             $_POST["lien_twitter"]
         )
         
-    ) {
+     ) {
         $nom = htmlentities($_POST["nom"]);
         $prenom = htmlentities($_POST["prenom"]);
         $lien_avatar = htmlentities($_POST["lien_avatar"]);
@@ -38,8 +38,11 @@ if ($formulaire_soumis) {
             $formulaire_a_erreurs = true;
         }
     }
-    header("Location:./");
+    if (empty($message_erreur)) {
+        header("Location:./");
+    }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -53,17 +56,10 @@ if ($formulaire_soumis) {
 
 <body>
     <?php require_once('../ressources/includes/menu-principal.php');
-    if ($formulaire_soumis && !$formulaire_a_erreurs) {
-        echo "
-                <section class='banniere-alerte succes' role='alert' aria-live='polite'>
-                    <p>Message envoyé !</p>
-                </section>
-            ";
-    }
     if ($formulaire_soumis && $formulaire_a_erreurs) {
         echo "
                 <section class='banniere-alerte erreur' role='alert' aria-live='polite'>
-                    <p>Votre message possède une erreur !</p>
+                    <p>$message_erreur</p>
                 </section>
             ";
     } ?>

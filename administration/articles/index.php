@@ -88,7 +88,7 @@ $URL_creation = "{$racine_URL}/creation.php";
                                     </div>
                                 <td class="pl-8 p-4"><?php echo $element["titre_article"]; ?></td>
                                 <td class="pl-8 p-4"><?php echo $element["chapo_article"]; ?></td>
-                                <td class="pl-8 p-4"><?php echo $element["contenu_article"]; ?></td>
+                                <td class="pl-8 p-4 truncate max-w-64"><?php echo $element["contenu_article"]; ?></td>
                                 <td class="pl-8 p-4"><a href="<?php echo $element['lien_yt_article']; ?>" target="_blank"><?php echo $element['lien_yt_article']; ?></a></td>
                                 <td class="pl-8 p-4"><?php echo $date_creation->format('d/m/Y H:i:s'); ?></td>
                                 <td class="pl-8 p-4"><?php echo $auteur_article; ?></td>

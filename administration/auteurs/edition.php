@@ -32,14 +32,14 @@ if ($formulaire_soumis) {
     ";
 
     $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
-
     if ($resultat_brut === true) {
-        // Tout s'est bien passé
-    } else {
-        // Il y a eu un problème
-    }
-    if($formulaire_soumis) {
+        // Redirection vers la page d'accueil
+        $formulaire_a_erreurs = false;
         header("Location:./");
+    } else {
+        // Affichage d'un message d'erreur en cas d'échec de la requête SQL
+        echo "Le formulaire comporte une erreur";
+        $formulaire_a_erreurs = true;
     }
 }
 ?>
