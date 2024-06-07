@@ -50,7 +50,7 @@ $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
                                 <img src="<?php echo $article["image"];?>" alt="image de l'article">
                             </figure>
                             <section class='textes'>
-                                <h1 class='titre'><?php echo $article["titre"]; ?></h1>
+                                <h2 class='titre'><?php echo $article["titre"]; ?></h2>
                                 <p class='description'>
                                     <?php echo $article["chapo"]; ?>
                                 </p>
@@ -74,8 +74,8 @@ $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
     </main>
     <?php 
         require_once('./ressources/includes/footer.php');
-        // mysqli_free_result($resultat_brut);
-        // mysqli_close($mysqli_link);
+         mysqli_free_result($resultat_brut);
+         mysqli_close($mysqli_link);
     ?>
 </body>
 

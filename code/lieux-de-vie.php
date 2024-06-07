@@ -63,6 +63,7 @@ require_once('./ressources/includes/connexion-bdd.php');
                         </p>
                         <p class="paragraphe texte-gras">
                             Si vous êtes étudiant boursier, vous bénéficiez automatiquement lors de votre passage en caisse du tarif à 1€ pour un repas complet.
+                            Enfin, ça c'est si il y a un CROUS HAHA parce que y en a pas !
                         </p>
                     </section>
                 </li>

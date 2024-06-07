@@ -1,0 +1,45 @@
+a.auteur{
+    transition: transform 0.5s ease;
+}
+
+a.auteur:hover{
+    transform: scale(1.05);
+}
+.colonne {
+    display: flex;
+    justify-content:space-between;
+    flex-direction: row;
+  } 
+.auteur {
+    display: block;
+    color: black;
+    text-decoration: none;
+}
+
+.auteur .titre {
+    font-size: 2.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+  
+.auteur figure {
+      overflow: hidden;
+}
+  
+.auteur .textes {
+    padding: 34px 50px 80px 30px;
+}
+  
+.auteur .description {
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    display: -webkit-box;
+}
+  
+.auteur {
+    width: 20%;
+    box-shadow: 0px 3px 6px #00000029;
+    margin-bottom: 2.15rem;
+}
+  
