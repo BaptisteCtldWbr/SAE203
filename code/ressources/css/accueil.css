@@ -5,3 +5,8 @@ a.article{
 a.article:hover{
     transform: scale(1.05);
 }
+
+
+.liste-article img{
+    max-height: 200px;
+}

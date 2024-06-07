@@ -5,11 +5,12 @@ a.auteur{
 a.auteur:hover{
     transform: scale(1.05);
 }
-.colonne {
-    display: flex;
-    justify-content:space-between;
-    flex-direction: row;
-  } 
+.liste-auteurs{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+} 
+
 .auteur {
     display: block;
     color: black;
@@ -23,7 +24,7 @@ a.auteur:hover{
 }
   
 .auteur figure {
-      overflow: hidden;
+    overflow: hidden;
 }
   
 .auteur .textes {
@@ -38,7 +39,6 @@ a.auteur:hover{
 }
   
 .auteur {
-    width: 20%;
     box-shadow: 0px 3px 6px #00000029;
     margin-bottom: 2.15rem;
 }
