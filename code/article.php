@@ -32,22 +32,12 @@ $lien_yt_iframe = transformerLienYoutube($entite["lien_yt"]);
 
 <head>
     <base href="/<?php echo $_ENV['CHEMIN_BASE']; ?>">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $entite["titre"]; ?> - SAÉ 203</title>
-    <link rel="shortcut icon" href="ressources/images/favicon.ico" type="image/x-icon">
-
-    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/reset.css">
-    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/fonts.css">
-    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/global.css">
-    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/header.css">
+    <?php require_once('./ressources/includes/head.php');?>
     <link rel="stylesheet" href="ressources/css/header.css">
-    <link rel="stylesheet" href="ressources/css/ne-pas-modifier/accueil.css">
-
     <link rel="stylesheet" href="ressources/css/global.css">
     <link rel="stylesheet" href="ressources/css/accueil.css">
-    <link rel="stylesheet" href="ressources/css/article.css">
+    <link rel="stylesheet" href="ressources/css/article.css">    
+    <title><?php echo $entite["titre"]; ?> - SAÉ 203</title>
 </head>
 
 <body>

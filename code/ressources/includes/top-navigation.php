@@ -1,3 +1,4 @@
+
 <nav class="navigation-principale conteneur-1280">
     <ul>
         <li <?php if ($page_active === "index") {
