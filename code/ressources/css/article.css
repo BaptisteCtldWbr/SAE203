@@ -16,7 +16,10 @@
     max-height: 200px;
 }
 
-.auteur-date {
-    display: flex;
-    flex-direction: row;
+.contenu {
+    width :720px;
+    line-height: 1.2rem;
+}
+.lien-ytb {
+    margin: 2rem 0;
 }

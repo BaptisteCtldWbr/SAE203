@@ -35,7 +35,7 @@ $resultat_brut = mysqli_query($mysqli_link, $requete_brute);
 
     <!-- Vous allez principalement écrire votre code HTML ci-dessous -->
     <main class="conteneur-principal conteneur-1280">
-        <h1 class="titre">Voici nos charmants auteurs ! (surtout Simon)</h1>
+        <h1 class="titre">Voici nos charmants auteurs !(surtout Simon)</h1>
             <section class="liste-auteurs">
                 <?php while ($auteur = mysqli_fetch_array($resultat_brut)) { ?>
                         <a href="auteur.php?id=<?php echo $auteur["id"]; ?>" class='auteur'>

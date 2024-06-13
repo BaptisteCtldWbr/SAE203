@@ -1,11 +1,13 @@
-a.auteur{
+a.auteur {
     transition: transform 0.5s ease;
+    overflow: hidden; 
 }
 
-a.auteur:hover{
+a.auteur:hover {
     transform: scale(1.05);
 }
-.liste-auteurs{
+
+.liste-auteurs {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
@@ -15,6 +17,9 @@ a.auteur:hover{
     display: block;
     color: black;
     text-decoration: none;
+    box-shadow: 0px 3px 6px #00000029;
+    margin-bottom: 2.15rem;
+    overflow: hidden;
 }
 
 .auteur .titre {
@@ -22,24 +27,27 @@ a.auteur:hover{
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
-  
+
 .auteur figure {
     overflow: hidden;
+    height: 350px; 
+    width: 100%; 
+    margin: 0;
 }
-  
+
+.auteur figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .auteur .textes {
     padding: 34px 50px 80px 30px;
 }
-  
+
 .auteur .description {
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
     display: -webkit-box;
 }
-  
-.auteur {
-    box-shadow: 0px 3px 6px #00000029;
-    margin-bottom: 2.15rem;
-}
-  

@@ -7,6 +7,12 @@ a.article:hover{
 }
 
 
-.liste-article img{
-    max-height: 200px;
+.article figure {
+    max-height: 460px;
+    overflow: hidden;
 }
+.article img{
+    width: 100%;
+
+}
+
